@@ -9,10 +9,12 @@ class Counter {
   [Symbol.iterator]() {
     const end = this.end;
     let i = this.begin;
+    const step = this.step;
     const iterator = {
       next() {
+        i += step;
         return {
-          value: i++,
+          value: i - step,
           done: i > end
         };
       }
