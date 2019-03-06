@@ -12,11 +12,12 @@ class Counter {
     const step = this.step;
     const iterator = {
       next() {
-        i += step;
-        return {
-          value: i - step,
+        const item = {
+          value: i,
           done: i > end
         };
+        i += step;
+        return item;
       }
     };
     return iterator;
